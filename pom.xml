@@ -52,6 +52,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:nitesh-b/nit-pet-clinic.git</developerConnection>
+        <tag>HEAD</tag>
     </scm>
 
 </project>
