@@ -15,7 +15,7 @@
     </parent>
     <groupId>com.niteshb</groupId>
     <artifactId>nit-pet-clinic</artifactId>
-    <version>0.0.4-SNAPSHOT</version>
+    <version>0.0.4</version>
     <name>nit-pet-clinic</name>
     <description>nit-pet-clinic</description>
     <properties>
@@ -49,7 +49,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:nitesh-b/nit-pet-clinic.git</developerConnection>
-        <tag>nit-pet-clinic-0.0.3</tag>
+        <tag>nit-pet-clinic-0.0.4</tag>
     </scm>
 
 </project>
