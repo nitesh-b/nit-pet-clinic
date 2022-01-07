@@ -3,10 +3,11 @@ package com.niteshb.nitpetclinic.services.map;
 import com.niteshb.nitpetclinic.models.Owner;
 import com.niteshb.nitpetclinic.models.Vet;
 import com.niteshb.nitpetclinic.services.CrudService;
+import com.niteshb.nitpetclinic.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
