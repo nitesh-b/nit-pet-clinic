@@ -4,9 +4,11 @@ import com.niteshb.nitpetclinic.models.Owner;
 import com.niteshb.nitpetclinic.models.Pet;
 import com.niteshb.nitpetclinic.services.CrudService;
 import com.niteshb.nitpetclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {

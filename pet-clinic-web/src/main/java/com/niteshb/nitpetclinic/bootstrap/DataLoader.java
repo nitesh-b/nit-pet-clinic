@@ -4,8 +4,7 @@ import com.niteshb.nitpetclinic.models.Owner;
 import com.niteshb.nitpetclinic.models.Vet;
 import com.niteshb.nitpetclinic.services.OwnerService;
 import com.niteshb.nitpetclinic.services.VetService;
-import com.niteshb.nitpetclinic.services.map.OwnerServiceMap;
-import com.niteshb.nitpetclinic.services.map.VetServiceMap;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -18,9 +17,18 @@ public class DataLoader implements CommandLineRunner {
 
 
 
-    public DataLoader() {
-        this.ownerService = new OwnerServiceMap();
-        this.vetService = new VetServiceMap();
+//We dont want this, we want spring to initiate class; Dependency INjection
+//    public DataLoader() {
+//        this.ownerService = new OwnerServiceMap();
+//        this.vetService = new VetServiceMap();
+//    }
+
+    //For constructor like this autowire is not necessary
+
+    @Autowired
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
