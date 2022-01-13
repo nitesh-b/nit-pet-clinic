@@ -1,8 +1,11 @@
 package com.niteshb.nitpetclinic.bootstrap;
 
 import com.niteshb.nitpetclinic.models.Owner;
+import com.niteshb.nitpetclinic.models.Pet;
+import com.niteshb.nitpetclinic.models.PetType;
 import com.niteshb.nitpetclinic.models.Vet;
 import com.niteshb.nitpetclinic.services.OwnerService;
+import com.niteshb.nitpetclinic.services.PetTypeService;
 import com.niteshb.nitpetclinic.services.VetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +18,8 @@ public class DataLoader implements CommandLineRunner {
 
 	private final VetService vetService;
 
+	private final PetTypeService petTypeService;
+
 	// We dont want this, we want spring to initiate class; Dependency INjection
 	// public DataLoader() {
 	// this.ownerService = new OwnerServiceMap();
@@ -24,9 +29,10 @@ public class DataLoader implements CommandLineRunner {
 	// For constructor like this autowire is not necessary
 
 	@Autowired
-	public DataLoader(OwnerService ownerService, VetService vetService) {
+	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
 		this.ownerService = ownerService;
 		this.vetService = vetService;
+		this.petTypeService = petTypeService;
 	}
 
 	@Override
@@ -77,6 +83,19 @@ public class DataLoader implements CommandLineRunner {
 		vetService.save(vet3);
 
 		System.out.println("Vet loaded...");
+
+
+		PetType cat = new PetType();
+		cat.setName("Cat");
+		PetType savedDogType = petTypeService.save(cat);
+
+		PetType dog = new PetType();
+		dog.setName("Dog");
+		PetType savedCatType = petTypeService.save(dog);
+
+		PetType horse = new PetType();
+		horse.setName("Horse");
+		PetType savedHorseType = petTypeService.save(horse);
 	}
 
 }
