@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -38,53 +40,6 @@ public class DataLoader implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Owner owner = new Owner();
-		owner.setId(1L);
-		owner.setFirstName("Mark");
-		owner.setLstName("Hamil");
-		ownerService.save(owner);
-
-		Owner owner2 = new Owner();
-		owner2.setId(2L);
-		owner2.setFirstName("Rucus");
-		owner2.setLstName("Patao");
-		ownerService.save(owner2);
-
-		Owner owner3 = new Owner();
-		owner3.setId(3L);
-		owner3.setFirstName("Jamil");
-		owner3.setLstName("Kamil");
-		ownerService.save(owner3);
-
-		Owner owner4 = new Owner();
-		owner4.setId(4L);
-		owner4.setFirstName("Todd");
-		owner4.setLstName("Sadde");
-		ownerService.save(owner4);
-
-		System.out.println("Owner loaded...");
-
-		Vet vet1 = new Vet();
-		vet1.setFirstName("Sam");
-		vet1.setLstName("Bond");
-		vet1.setId(1L);
-		vetService.save(vet1);
-
-		Vet vet2 = new Vet();
-		vet2.setFirstName("Tam");
-		vet2.setLstName("Tond");
-		vet2.setId(2L);
-		vetService.save(vet2);
-
-		Vet vet3 = new Vet();
-		vet3.setFirstName("Pam");
-		vet3.setLstName("Pond");
-		vet3.setId(3L);
-		vetService.save(vet3);
-
-		System.out.println("Vet loaded...");
-
-
 		PetType cat = new PetType();
 		cat.setName("Cat");
 		PetType savedDogType = petTypeService.save(cat);
@@ -96,6 +51,86 @@ public class DataLoader implements CommandLineRunner {
 		PetType horse = new PetType();
 		horse.setName("Horse");
 		PetType savedHorseType = petTypeService.save(horse);
+
+		Owner owner = new Owner();
+		owner.setFirstName("Mark");
+		owner.setLstName("Hamil");
+		owner.setAddress("123 Stoney Crk");
+		owner.setCity("Kingsgrove");
+		owner.setTelephone("0412345434");
+
+		Pet markPet = new Pet();
+		markPet.setName("Lucas");
+		markPet.setOwner(owner);
+		markPet.setPetType(savedDogType);
+		markPet.setBirthDate(LocalDate.now());
+
+		owner.getPets().add(markPet);
+		ownerService.save(owner);
+
+		Owner owner2 = new Owner();
+		owner2.setFirstName("Rucus");
+		owner2.setLstName("Patao");
+		owner2.setAddress("456 Stoney Crk");
+		owner2.setCity("Kingsgrove");
+		owner2.setTelephone("0412345434");
+
+		Pet rucusPet = new Pet();
+		rucusPet.setName("Lucy");
+		rucusPet.setOwner(owner2);
+		rucusPet.setPetType(savedCatType);
+		rucusPet.setBirthDate(LocalDate.now());
+		owner2.getPets().add(rucusPet);
+		ownerService.save(owner2);
+
+		Owner owner3 = new Owner();
+		owner3.setFirstName("Jamil");
+		owner3.setLstName("Kamil");
+		owner3.setAddress("789 Stoney Crk");
+		owner3.setCity("Kingsgrove");
+		owner3.setTelephone("0412345434");
+
+		Pet jamilPet = new Pet();
+		jamilPet.setName("Pascal");
+		jamilPet.setOwner(owner3);
+		jamilPet.setPetType(savedHorseType);
+		jamilPet.setBirthDate(LocalDate.now());
+		owner3.getPets().add(jamilPet);
+		ownerService.save(owner3);
+
+		Owner owner4 = new Owner();
+		owner4.setFirstName("Todd");
+		owner4.setLstName("Sadde");
+		owner4.setAddress("000 Stoney Crk");
+		owner4.setCity("Kingsgrove");
+		owner4.setTelephone("0412345434");
+		Pet toddPet = new Pet();
+		toddPet.setName("Knight");
+		toddPet.setOwner(owner4);
+		toddPet.setPetType(savedHorseType);
+		toddPet.setBirthDate(LocalDate.now());
+		owner4.getPets().add(toddPet);
+		ownerService.save(owner4);
+
+		System.out.println("Owner loaded...");
+
+		Vet vet1 = new Vet();
+		vet1.setFirstName("Sam");
+		vet1.setLstName("Bond");
+		vetService.save(vet1);
+
+		Vet vet2 = new Vet();
+		vet2.setFirstName("Tam");
+		vet2.setLstName("Tond");
+		vetService.save(vet2);
+
+		Vet vet3 = new Vet();
+		vet3.setFirstName("Pam");
+		vet3.setLstName("Pond");
+		vetService.save(vet3);
+
+		System.out.println("Vet loaded...");
+
 	}
 
 }
