@@ -1,8 +1,8 @@
 package com.niteshb.nitpetclinic.services.map;
 
-import com.niteshb.nitpetclinic.models.Owner;
+import com.niteshb.nitpetclinic.models.Speciality;
 import com.niteshb.nitpetclinic.models.Vet;
-import com.niteshb.nitpetclinic.services.CrudService;
+import com.niteshb.nitpetclinic.services.SpecialityService;
 import com.niteshb.nitpetclinic.services.VetService;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +10,13 @@ import java.util.Set;
 
 @Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+
+    private final SpecialityService specialityService;
+
+    public VetServiceMap(SpecialityService specialityService) {
+        this.specialityService = specialityService;
+    }
+
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
@@ -27,7 +34,17 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet save(Vet object) {
+        if(object.getSpecialities().size()>0){
+            object.getSpecialities().forEach(speciality -> {
+                if(speciality.getId() == null){
+                    Speciality savedSpeciality = specialityService.save(speciality);
+                    speciality.setId(savedSpeciality.getId());
+                }
+            });
+
+        }
         return super.save(object);
+
     }
 
     @Override

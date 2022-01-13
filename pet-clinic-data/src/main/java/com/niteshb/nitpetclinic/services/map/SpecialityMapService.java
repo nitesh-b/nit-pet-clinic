@@ -1,14 +1,14 @@
 package com.niteshb.nitpetclinic.services.map;
 
 import com.niteshb.nitpetclinic.models.Speciality;
-import com.niteshb.nitpetclinic.services.SpecialitiesService;
+import com.niteshb.nitpetclinic.services.SpecialityService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
 
-public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialitiesService {
+public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialityService {
     @Override
     public Set<Speciality> findAll() {
         return super.findAll();
