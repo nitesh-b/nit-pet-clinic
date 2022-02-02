@@ -1,7 +1,5 @@
 package com.niteshb.nitpetclinic.models;
 
-import org.hibernate.type.descriptor.java.LocaleTypeDescriptor;
-
 import java.time.LocalDate;
 
 public class Visit extends BaseEntity{
