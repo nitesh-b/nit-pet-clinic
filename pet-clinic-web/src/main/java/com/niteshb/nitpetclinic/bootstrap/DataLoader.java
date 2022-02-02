@@ -76,7 +76,7 @@ public class DataLoader implements CommandLineRunner {
 
 		Owner owner = new Owner();
 		owner.setFirstName("Mark");
-		owner.setLstName("Hamil");
+		owner.setLastName("Hamil");
 		owner.setAddress("123 Stoney Crk");
 		owner.setCity("Kingsgrove");
 		owner.setTelephone("0412345434");
@@ -92,7 +92,7 @@ public class DataLoader implements CommandLineRunner {
 
 		Owner owner2 = new Owner();
 		owner2.setFirstName("Rucus");
-		owner2.setLstName("Patao");
+		owner2.setLastName("Patao");
 		owner2.setAddress("456 Stoney Crk");
 		owner2.setCity("Kingsgrove");
 		owner2.setTelephone("0412345434");
@@ -107,7 +107,7 @@ public class DataLoader implements CommandLineRunner {
 
 		Owner owner3 = new Owner();
 		owner3.setFirstName("Jamil");
-		owner3.setLstName("Kamil");
+		owner3.setLastName("Kamil");
 		owner3.setAddress("789 Stoney Crk");
 		owner3.setCity("Kingsgrove");
 		owner3.setTelephone("0412345434");
@@ -122,7 +122,7 @@ public class DataLoader implements CommandLineRunner {
 
 		Owner owner4 = new Owner();
 		owner4.setFirstName("Todd");
-		owner4.setLstName("Sadde");
+		owner4.setLastName("Sadde");
 		owner4.setAddress("000 Stoney Crk");
 		owner4.setCity("Kingsgrove");
 		owner4.setTelephone("0412345434");
@@ -138,19 +138,19 @@ public class DataLoader implements CommandLineRunner {
 
 		Vet vet1 = new Vet();
 		vet1.setFirstName("Sam");
-		vet1.setLstName("Bond");
+		vet1.setLastName("Bond");
 		vet1.getSpecialities().add(savedDentistry);
 		vetService.save(vet1);
 
 		Vet vet2 = new Vet();
 		vet2.setFirstName("Tam");
-		vet2.setLstName("Tond");
+		vet2.setLastName("Tond");
 		vet2.getSpecialities().add(savedSurgery);
 		vetService.save(vet2);
 
 		Vet vet3 = new Vet();
 		vet3.setFirstName("Pam");
-		vet3.setLstName("Pond");
+		vet3.setLastName("Pond");
 		vet3.getSpecialities().add(savedRadiology);
 		vetService.save(vet3);
 

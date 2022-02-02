@@ -1,8 +1,15 @@
 package com.niteshb.nitpetclinic.models;
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class Person extends BaseEntity {
+    @Column(name = "first_name")
     private String firstName;
-    private String lstName;
+
+    @Column(name = "last_name")
+    private String lastName;
 
     public String getFirstName() {
         return firstName;
@@ -12,11 +19,11 @@ public class Person extends BaseEntity {
         this.firstName = firstName;
     }
 
-    public String getLstName() {
-        return lstName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLstName(String lstName) {
-        this.lstName = lstName;
+    public void setLastName(String lstName) {
+        this.lastName = lstName;
     }
 }
